@@ -7,9 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+import { Application } from 'stimulus'
 import StimulusReflex from 'stimulus_reflex'
 import consumer from '../channels/consumer'
-import controller from './application_controller'
+import controller from '../controllers/application_controller'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,4 +20,5 @@ import controller from './application_controller'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+const application = Application.start()
 StimulusReflex.initialize(application, { consumer, controller, debug: false })
